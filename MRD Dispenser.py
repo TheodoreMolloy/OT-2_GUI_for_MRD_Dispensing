@@ -562,6 +562,7 @@ class MainWindow(QMainWindow):
         
         layout.addStretch()
 
+        # Make append to stacked_widget so it can cycle through pages
         self.stacked_widget.addWidget(page)
 
     def create_second_page(self):
@@ -867,7 +868,8 @@ class MainWindow(QMainWindow):
         QMessageBox.information(self, "Stopped", 
                             "Protocol run has been stopped.\n"
                             "Please wait for robot to settle if it's still moving.")
-        self.stop_btn.setEnabled(True)
+        self.pause_resume_btn.setText("Pause")
+        self.paused = False
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
@@ -875,3 +877,4 @@ if __name__ == "__main__":
     window.show()
 
     sys.exit(app.exec())
+
