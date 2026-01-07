@@ -867,9 +867,11 @@ class MainWindow(QMainWindow):
         QMessageBox.information(self, "Stopped", 
                             "Protocol run has been stopped.\n"
                             "Please wait for robot to settle if it's still moving.")
+        self.stop_btn.setEnabled(True)
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     window = MainWindow()
     window.show()
+
     sys.exit(app.exec())
